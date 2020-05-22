@@ -56,6 +56,18 @@ This might take several ~~minutes~~ hours. Depending on your environment. It too
 
 Output: `output/images/linux.efi`.
 
+## Development
+
+1. Do not make changes directly to `buildroot/.config`. Use `make nconfig` instead.
+
+2. After making changes to your buildroot config, use `make -jN savedefconfig` to export the puerified config to the board tree.
+
+3. If you wish to change the kernel config, use `make -jN linux-nconfig`. The same, use `make -jN linux-update-defconfig` to export the puerified linux kernel config.
+
+4. Make sure `buildroot/` is clean (no changes are made), by using `git status`.
+
+5. All changes should be made in the device tree.
+
 ## Disclaimer
 
 This is an experimental project. It's only used for:
