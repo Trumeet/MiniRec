@@ -19,6 +19,20 @@ jobs:
       id: install_pkgs
       run: sudo apt-get install -y cpio binutils libelf-dev
       
+    - name: Cache ccache
+      id: cache_ccache
+      uses: actions/cache@v1
+      with:
+          path: $HOME/.buildroot-ccache/
+          key: ccache
+
+    - name: Cache dl
+      id: cache_dl
+      uses: actions/cache@v1
+      with:
+          path: ./buildroot/dl/
+          key: dl
+
     - name: Run a multi-line script
       id: build
       run: |
