@@ -14,7 +14,7 @@ An experimental project that builds a minimal Linux system with the capability o
 
 * Self-contained EFI Stub application, with root image builtin.
 
-* Network, especially WiFi, is not supposed to work. (In fact that's because I'm not familiar with all these building & kernel stuff, lol. The firmware, on the other hand, may be giant.)
+* Network is not supported.
 
 * Various of FS support in kernel (for example, Btrfs, Xfs, NTFS...). NVME support enabled.
 
