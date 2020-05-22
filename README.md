@@ -1,5 +1,7 @@
 # MiniRec
 
+![Build](https://github.com/Trumeet/MiniRec/workflows/Build/badge.svg)
+
 An experimental project that builds a minimal Linux system with the capability of repairing a broken system (a.k.a. recovery disc).
 
 ## Highlights
@@ -33,8 +35,6 @@ An experimental project that builds a minimal Linux system with the capability o
 * Download the latest `.efi` in the releases page. (Comming Soon)
 
 * Boot the `.efi` application. 
-
-* Login as `root`.
 
 * That's it!
 
