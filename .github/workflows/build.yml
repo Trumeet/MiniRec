@@ -17,7 +17,7 @@ jobs:
 
     - name: Run a one-line script
       id: install_pkgs
-      run: sudo apt-get install -y cpio binutils
+      run: sudo apt-get install -y cpio binutils libelf-dev
       
     - name: Run a multi-line script
       id: build
