@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set sha
-      id: set_sha
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-
     - uses: actions/checkout@v2
       id: checkout
       
     - uses: textbook/git-checkout-submodule-action@master
       id: checkout_submodules
+
+    - name: Set sha
+      id: set_sha
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
     - name: Run a one-line script
       id: install_pkgs
