@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set sha
+      id: set_sha
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
     - uses: actions/checkout@v2
       id: checkout
       
@@ -46,8 +50,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: ${GITHUB_SHA::8}
-          release_name: ${GITHUB_SHA::8}
+          tag_name: ${{ steps.set_sha.outputs.sha_short }}
+          release_name: ${{ steps.set_sha.outputs.sha_short }}
         body: Automatic release
 
     - name: Upload Release Asset
