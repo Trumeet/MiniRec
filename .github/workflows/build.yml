@@ -50,8 +50,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: ${{ steps.set_sha.outputs.sha_short }}
-          release_name: Release ${{ steps.set_sha.outputs.sha_short }}
+        tag_name: ${{ steps.set_sha.outputs.sha_short }}
+        release_name: Release ${{ steps.set_sha.outputs.sha_short }}
         body: Automatic release
 
     - name: Upload Release Asset
