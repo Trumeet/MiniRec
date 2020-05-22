@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      id: checkout
+      
+    - uses: textbook/git-checkout-submodule-action@master
+      id: checkout_submodules
+
+    - name: Run a one-line script
+      id: install_pkgs
+      run: sudo apt-get install -y cpio binutils
+      
+    - name: Run a multi-line script
+      id: build
+      run: |
+        cd buildroot && \
+               make -j5 BR2_EXTERNAL=../minirec_tree/ minirec_defconfig && \
+               make -j5
+               
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        body: Automatic release
+
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} 
+        asset_path: ./buildroot/output/images/linux.efi
+        asset_name: linux.efi
