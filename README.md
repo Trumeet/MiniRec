@@ -30,13 +30,31 @@ An experimental project that builds a minimal Linux system with the capability o
 
 ## Usage
 
-* Download the latest `.efi` in the releases page.
+* Download the latest `.efi` in the releases page. (Comming Soon)
 
 * Boot the `.efi` application. 
 
 * Login as `root`.
 
 * That's it!
+
+## Build
+
+Make sure you have 7G free space of disk.
+
+* Clone this repo with submodules.
+
+* cd to buildroot
+
+* `make -jN BR2_EXTERNAL=../minirec_tree/ minirec_defconfig`
+
+* `make -jN`
+
+Sit back and relax. 请坐和放宽。
+
+This might take several ~~minutes~~ hours. Depending on your environment. It took half a hour on my machine with `-j9` (XPS 13 9360). 
+
+Output: `output/images/linux.efi`.
 
 ## Disclaimer
 
