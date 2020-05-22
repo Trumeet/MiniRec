@@ -28,7 +28,7 @@ jobs:
       uses: actions/cache@v1
       with:
           path: ~/.buildroot-ccache/
-          key: ccache_114514
+          key: ccache_1919810
 
     - name: Cache dl
       id: cache_dl
