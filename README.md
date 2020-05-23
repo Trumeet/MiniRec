@@ -6,11 +6,11 @@ An experimental project that builds a minimal Linux system with the capability o
 
 ## Highlights
 
-* Only 19M! (Although it's still way too big)
+* Only 14M! (Although it's still way too big)
 
 * Uses buildroot to compile the kernel as well as programs
 
-* Contains various of commonly used packages, for example, `zip`, `xz`, `unrar`, `p7zip`, and various of FS tools and programs.
+* Contains various of commonly used packages, for example, `zip`, `xz`, `unrar`, `p7zip`, `fdisk` (does not support creating GPT table), `gdisk`, and various of FS tools and programs.
 
 * Uses BusyBox as its init system as well as shell. BusyBox provides numerous of utilities.
 
@@ -30,9 +30,17 @@ An experimental project that builds a minimal Linux system with the capability o
 
 * Trying compiling Linux from "scratch" (although buildroot had done so many things for me)
 
+## Requirements
+
+Tested on QEMU:
+
+* x86-64 system
+
+* 512M RAM
+
 ## Usage
 
-* Download the latest `.efi` in the releases page. (Comming Soon)
+* Download the latest `.efi` in the [releases page](https://github.com/Trumeet/MiniRec/releases/latest).
 
 * Boot the `.efi` application. 
 
