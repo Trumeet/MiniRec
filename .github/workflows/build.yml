@@ -28,14 +28,18 @@ jobs:
       uses: actions/cache@v1
       with:
           path: ~/.buildroot-ccache/
-          key: ccache_1919810
+          key: ${{ runner.os }}-ccache-${{ hashFiles('**/*.config*') }}
+          restore-keys: |
+            ${{ runner.os }}-ccache-
 
     - name: Cache dl
       id: cache_dl
       uses: actions/cache@v1
       with:
           path: ./buildroot/dl/
-          key: dl
+          key: ${{ runner.os }}-dl-${{ hashFiles('**/*.config*') }}
+          restore-keys: |
+            ${{ runner.os }}-dl-
 
     - name: Run a multi-line script
       id: build
